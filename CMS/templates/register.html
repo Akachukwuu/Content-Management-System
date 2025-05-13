@@ -1,3 +1,8 @@
+
+{% extends 'index.html' %}
+
+
+{% block content %}
 <form action="{% url 'register' %}" method="POST">
     {% csrf_token %}
 
@@ -21,3 +26,5 @@
     <a href="{% url 'login' %}">Login</a>
 
 </form>
+
+{% endblock %}
