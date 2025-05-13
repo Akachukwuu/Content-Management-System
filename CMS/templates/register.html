@@ -1,0 +1,23 @@
+<form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+
+    <p>Full Name:</p>
+    <input type="text" name="username">
+
+    <p>Email:</p>
+    <input type="email" name="email">
+
+    <p>Password</p>
+    <input type="password" name="password">
+
+    <p>Confirm Password:</p>
+    <input type="password" name="confirm_password">
+
+    <input type="submit" value="Register">
+    <a href="{% url 'login' %}">Login</a>
+
+</form>
