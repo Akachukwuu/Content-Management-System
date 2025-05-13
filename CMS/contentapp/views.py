@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Post
 
 
 
@@ -9,7 +10,8 @@ def index(request):
     return render(request, 'index.html')
 
 def home(request):
-    return render(request, 'home.html')
+    posts = Post.objects.all()
+    return render(request, 'home.html', {'posts': posts})
 
 def register_user(request):
     if request.method == 'POST':
@@ -48,3 +50,6 @@ def login_user(request):
         else:
             messages.info(request, 'Invalid Details')
     return render(request, 'login.html')
+
+def display_post(request):
+    pass

@@ -1,5 +1,14 @@
 {% extends 'index.html' %}
 
-<h1>
-    Welcome Home
-</h1>
+{% block mainpage %}
+
+{% for post in posts %}
+<div>
+    <h1>{{post.title}}</h1>
+    <h4>{{post.body}}</h4>
+    <p>{{post.when_created}}</p>
+</div>
+{% endfor %}
+
+
+{% endblock %}
