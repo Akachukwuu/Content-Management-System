@@ -1,14 +1,20 @@
 {% extends 'index.html' %}
 
+
 {% block mainpage %}
 
-{% for post in posts %}
-<div>
+{% if user.is_authenticated %}
+<h4 style="text-align: center; color: dodgerblue;">Welcome, {{user.username}}</h4>
+    {% for post in posts %}
     <h1>{{post.title}}</h1>
     <h4>{{post.body}}</h4>
     <p>{{post.when_created}}</p>
-</div>
-{% endfor %}
+    <hr>
+    {% endfor %}
+
+    {% else %}
+    <h2>Welcome. You have to be logged in to view other user's posts</h2>
+    {% endif %}
 
 
 {% endblock %}

@@ -53,3 +53,7 @@ def login_user(request):
 
 def display_post(request):
     pass
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
