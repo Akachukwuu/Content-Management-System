@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+
+{% block create_content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+
+<div class="mb-3 col-8" style="padding-top: 4em;">
+    <h2 style="color: black; text-align: center;">Make A Post</h2>
+  <input type="text" name="title" style="border-width: 5px; margin-top: 3em; margin-left: 10em;" class="form-control" placeholder="Post Title" required>
+</div>
+
+<div class="mb-4 col-8">
+  <textarea class="form-control" style="border-width: 5px; margin-top: 3em; margin-left: 10em;" name="body" placeholder="Post Body" rows="12" required></textarea>
+</div>
+<button type="submit" style=" margin-left: 10em;" class="btn btn-primary">Post</button>
+</form>
+
+{% endblock %}
+
+

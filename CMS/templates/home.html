@@ -4,17 +4,19 @@
 {% block mainpage %}
 
 {% if user.is_authenticated %}
+
+<div style=" padding-top: 4em;">
 <h4 style="text-align: center; color: dodgerblue;">Welcome, {{user.username}}</h4>
     {% for post in posts %}
-    <h1>{{post.title}}</h1>
-    <h4>{{post.body}}</h4>
+    <a style="text-decoration: none; color: black;" href="/display_post/{{post.id}}"><h1>{{post.title}}</h1></a>
+    <h4>{{post.body|truncatewords:10}}</h4>
     <p>{{post.when_created}}</p>
     <hr>
     {% endfor %}
 
     {% else %}
-    <h2>Welcome. You have to be logged in to view other user's posts</h2>
+    <h3 style="text-align: center;">Welcome. You have to be logged in to view other user's posts</h3>
     {% endif %}
-
+</div>
 
 {% endblock %}
